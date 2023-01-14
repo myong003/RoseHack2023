@@ -34,8 +34,14 @@ public class BallWell : MonoBehaviour
         if ( collision.gameObject == cube )
         {
             var temp = new Vector3(well.transform.position.x, well.transform.position.y + 1, well.transform.position.z);
+            //cube.transform.parent.GetComponent<PlayerPickup>().Drop(); 
             StartCoroutine(LerpPosition (temp, 2));
         }
+    }
+
+    void OnTriggerExit(Collider collision)
+    {
+        inWell = false; 
     }
 
     // Update is called once per frame
