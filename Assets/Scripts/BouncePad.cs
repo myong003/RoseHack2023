@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class BouncePad : MonoBehaviour
 {
-    private Rigidbody rb; 
-    public GameObject player;
-    public float boost; 
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>(); 
+
     }
 
     // Update is called once per frame
@@ -21,9 +19,6 @@ public class BouncePad : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if ( collision.gameObject == player )
-        {
-            player.GetComponent<Rigidbody>().velocity = new Vector2(0, 10);
-        }
+            collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, -collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
     }
 }

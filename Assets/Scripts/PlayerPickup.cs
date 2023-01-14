@@ -21,32 +21,37 @@ public class PlayerPickup : MonoBehaviour
             PickUp();
             carryingObject = true;
         }
-        else if (Input.GetButtonDown("Pickup") && pickupInRange && carryingObject){
+        else if (Input.GetButtonDown("Pickup") && carryingObject){
             Drop();
             carryingObject = false;
         }
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Pickup"){
+        if (other.gameObject.tag == "Pickup" && !carryingObject){
             pickupInRange = true;
             pickupObject = other.gameObject;
         }
     }
 
     private void OnTriggerExit(Collider other) {
-        if (other.gameObject.tag == "Pickup"){
+        if (other.gameObject.tag == "Pickup" && !carryingObject){
             pickupInRange = false;
             pickupObject = null;
         }
     }
 
     void PickUp(){
+        if (pickupObject.TryGetComponent(out BallWell well)){
+            well.enabled = false;
+        }
         pickupObject.transform.parent = gameObject.transform;
+        pickupObject.GetComponent<Rigidbody>().isKinematic = true;
         pickupObject.transform.localPosition = new Vector3(0, -0.25f, 1.75f);
     }
 
     void Drop(){
         pickupObject.transform.parent = null;
+        pickupObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 }

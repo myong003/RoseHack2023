@@ -30,7 +30,7 @@ public class BallWell : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        var temp = new Vector3(well.transform.position.x, well.transform.position.y + 2, well.transform.position.z);
+        var temp = new Vector3(well.transform.position.x, well.transform.position.y + 1, well.transform.position.z);
         StartCoroutine(LerpPosition (temp, 2));
     }
 
