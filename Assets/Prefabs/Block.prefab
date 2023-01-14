@@ -146,6 +146,7 @@ MonoBehaviour:
   stretchingBlock: {fileID: 8056504804515922146}
   topHeight: {fileID: 176367732310612461}
   isStretching: 0
+  currentLevel: 1
 --- !u!1 &7865761336837043443
 GameObject:
   m_ObjectHideFlags: 0
