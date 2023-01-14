@@ -43,7 +43,7 @@ public class PlayerPickup : MonoBehaviour
 
     void PickUp(){
         pickupObject.transform.parent = gameObject.transform;
-        pickupObject.transform.localPosition = new Vector3(0, -0.25f, 1.25f);
+        pickupObject.transform.localPosition = new Vector3(0, -0.25f, 1.75f);
     }
 
     void Drop(){
