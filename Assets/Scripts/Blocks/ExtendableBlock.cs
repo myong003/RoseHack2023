@@ -10,16 +10,16 @@ public class ExtendableBlock : MonoBehaviour
     public int currentLevel;
     public float minLevel = 1;
     public float maxLevel = 3;
-    private float nextHeight;
-    private float scaleSpeed = 1;   // How fast the blocks
-    private float levelHeight = 5;      // How tall each level raise is
-    private int movingDirection;
+    public float scaleSpeed = 1;         // How fast the blocks rise/fall
+    protected float nextHeight;
+    protected float levelHeight = 5;      // How tall each level raise is
+    protected int movingDirection;
 
-    void Start() {
+    protected void Start() {
         isStretching = false;
     }
 
-    void Update() {
+    protected void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
             ExtendBlock(1);
         }
