@@ -50,7 +50,7 @@ public class PlayerPickup : MonoBehaviour
         pickupObject.transform.localPosition = new Vector3(0, -0.25f, 1.75f);
     }
 
-    void Drop(){
+    public void Drop(){
         pickupObject.transform.parent = null;
         pickupObject.GetComponent<Rigidbody>().isKinematic = false;
     }
