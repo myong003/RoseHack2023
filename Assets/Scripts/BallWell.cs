@@ -53,6 +53,7 @@ public class BallWell : MonoBehaviour
                 cube = collision.gameObject;
                 var temp = new Vector3(well.transform.position.x, well.transform.position.y + 0.6f, well.transform.position.z);
                 //cube.transform.parent.GetComponent<PlayerPickup>().Drop(); 
+                Debug.Log("Calling coroutine");
                 StartCoroutine(LerpPosition (temp, 1.5f));
             }
             
@@ -61,7 +62,7 @@ public class BallWell : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        if ( collision.gameObject.tag == "Pickup"){
+        if ( collision.gameObject.tag == "Pickup" && inWell){
             inWell = false;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             LowerBlocks();

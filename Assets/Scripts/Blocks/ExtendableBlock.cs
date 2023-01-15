@@ -52,7 +52,7 @@ public class ExtendableBlock : MonoBehaviour
         if (currentLevel + levelChange <= maxLevel && currentLevel + levelChange >= minLevel && !isStretching) {
             float currHeight = topHeight.TransformPoint(topHeight.position).y;
             isStretching = true;
-            nextHeight = currHeight + levelChange * levelHeight;
+            nextHeight = (currentLevel + levelChange) * levelHeight;
             movingDirection = levelChange;
             currentLevel += levelChange;
         }
