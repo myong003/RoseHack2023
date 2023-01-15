@@ -42,15 +42,14 @@ public class PlayerPickup : MonoBehaviour
     }
 
     void PickUp(){
-        if (pickupObject.TryGetComponent(out BallWell well)){
-            well.enabled = false;
-        }
+        pickupObject.GetComponent<SphereStatus>().isPickedUp = true;
         pickupObject.transform.parent = gameObject.transform;
         pickupObject.GetComponent<Rigidbody>().isKinematic = true;
         pickupObject.transform.localPosition = new Vector3(0, -0.25f, 1.75f);
     }
 
     public void Drop(){
+        pickupObject.GetComponent<SphereStatus>().isPickedUp = false;
         pickupObject.transform.parent = null;
         pickupObject.GetComponent<Rigidbody>().isKinematic = false;
     }
