@@ -36,6 +36,7 @@ public class ExtendableBlock : MonoBehaviour
                 stretchingBlock.localScale -= new Vector3(0, 1, 0) * scaleSpeed * Time.deltaTime;
             }
             else {      // Done moving
+                stretchingBlock.localScale = new Vector3(stretchingBlock.localScale.x, Mathf.Round(stretchingBlock.localScale.y), stretchingBlock.localScale.z);
                 isStretching = false;
             }
         }
@@ -51,7 +52,7 @@ public class ExtendableBlock : MonoBehaviour
         if (currentLevel + levelChange <= maxLevel && currentLevel + levelChange >= minLevel && !isStretching) {
             float currHeight = topHeight.TransformPoint(topHeight.position).y;
             isStretching = true;
-            nextHeight = currHeight + levelChange * levelHeight;
+            nextHeight = (currentLevel + levelChange) * levelHeight;
             movingDirection = levelChange;
             currentLevel += levelChange;
         }

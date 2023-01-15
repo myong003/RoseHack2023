@@ -20,7 +20,7 @@ public class BouncePad : MonoBehaviour
     void OnTriggerEnter(Collider collision)
     {
         if (collision.TryGetComponent(out Rigidbody rb)){
-            collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, -collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
+            collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, -collision.gameObject.GetComponent<Rigidbody>().velocity.y * 1.05f, 0);
         }
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BallWell : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public List<ExtendableBlock> blocksToRaise;
+    public List<int> levelsToRaise;
     //public Vector3 positionToMoveTo;
     public GameObject well;
     private GameObject cube; 
@@ -25,8 +26,23 @@ public class BallWell : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+
+        RaiseBlocks();
         cube.transform.position = targetPosition;
+        cube.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ ;
         inWell = true;
+    }
+
+    private void RaiseBlocks() {
+        for (int i=0; i < blocksToRaise.Count; i++) {
+            blocksToRaise[i].ExtendBlock(levelsToRaise[i]);
+        }
+    }
+
+    private void LowerBlocks() {
+        for (int i=0; i < blocksToRaise.Count; i++) {
+            blocksToRaise[i].ExtendBlock(-levelsToRaise[i]);
+        }
     }
 
     void OnTriggerEnter(Collider collision)
@@ -35,9 +51,10 @@ public class BallWell : MonoBehaviour
         {
             if (!collision.gameObject.GetComponent<SphereStatus>().isPickedUp){
                 cube = collision.gameObject;
-                var temp = new Vector3(well.transform.position.x, well.transform.position.y + 1, well.transform.position.z);
+                var temp = new Vector3(well.transform.position.x, well.transform.position.y + 0.6f, well.transform.position.z);
                 //cube.transform.parent.GetComponent<PlayerPickup>().Drop(); 
-                StartCoroutine(LerpPosition (temp, 2));
+                Debug.Log("Calling coroutine");
+                StartCoroutine(LerpPosition (temp, 1.5f));
             }
             
         }
@@ -45,8 +62,10 @@ public class BallWell : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        if ( collision.gameObject.tag == "Pickup"){
-            inWell = false; 
+        if ( collision.gameObject.tag == "Pickup" && inWell){
+            inWell = false;
+            collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            LowerBlocks();
         }
     }
 
