@@ -17,6 +17,7 @@ public class BallWell : MonoBehaviour
     void Start()
     {
         var main = particles.main;
+        wellLight.color = wellColor;
         main.startColor = wellColor;
     }
 
@@ -51,7 +52,7 @@ public class BallWell : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if ( collision.gameObject.tag == "Pickup")
+        if ( collision.gameObject.tag == "Pickup" && !inWell)
         {
             if (!collision.gameObject.GetComponent<SphereStatus>().isPickedUp){
                 cube = collision.gameObject;
