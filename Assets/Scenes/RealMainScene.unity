@@ -22739,6 +22739,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 806417229}
     m_Modifications:
     - target: {fileID: 2241024726818872227, guid: 41b29e62a278a574c96ef4bc4d9adf9a, type: 3}
+      propertyPath: skyboxMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 183952c38a127d54ea0ba8894ba34f01, type: 2}
+    - target: {fileID: 2241024726818872227, guid: 41b29e62a278a574c96ef4bc4d9adf9a, type: 3}
       propertyPath: currentRespawnPoint
       value: 
       objectReference: {fileID: 1716116183}
