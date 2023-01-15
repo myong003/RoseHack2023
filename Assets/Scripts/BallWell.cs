@@ -49,7 +49,7 @@ public class BallWell : MonoBehaviour
     {
         if ( inWell == true )
         {
-            cube.transform.Rotate(50 * Time.deltaTime, 0, 50 * Time.deltaTime);
+            cube.transform.Rotate(50 * Time.deltaTime, 50 * Time.deltaTime, 50 * Time.deltaTime);
         }
     }
 }
