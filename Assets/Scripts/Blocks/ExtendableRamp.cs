@@ -6,7 +6,7 @@ public class ExtendableRamp : ExtendableBlock
 {
     public ExtendableBlock attachedPillar;
     public GameObject ramp;
-    private float yOffset = 0.6f;
+    private float yOffset = 0.2f;
     private float maxScale = 0.5f;
 
     protected override void Update() {
