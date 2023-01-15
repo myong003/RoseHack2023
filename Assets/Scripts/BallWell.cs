@@ -59,6 +59,7 @@ public class BallWell : MonoBehaviour
                 //cube.transform.parent.GetComponent<PlayerPickup>().Drop(); 
                 wellLight.enabled = true;
                 StartCoroutine(LerpPosition (temp, 1.5f));
+                cube.GetComponent<SphereStatus>().timerActive = true;
             }
             
         }

@@ -7,17 +7,9 @@ public class PlayerPickup : MonoBehaviour
 
     private bool pickupInRange = false, carryingObject = false;
     private GameObject pickupObject = null;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
-    // Update is called once per frame
     void Update()
     {   
-        if (Input.GetButtonDown("Pickup") && pickupInRange && !carryingObject){
+        if (Input.GetButtonDown("Pickup") && pickupInRange && !carryingObject && pickupObject.GetComponent<SphereStatus>().isPickupable){
             PickUp();
             carryingObject = true;
         }
@@ -46,11 +38,13 @@ public class PlayerPickup : MonoBehaviour
         pickupObject.transform.parent = gameObject.transform;
         pickupObject.GetComponent<Rigidbody>().isKinematic = true;
         pickupObject.transform.localPosition = new Vector3(0, -0.25f, 1.75f);
+        //pickupObject.GetComponent<SphereCollider>().enabled = false;
     }
 
     public void Drop(){
         pickupObject.GetComponent<SphereStatus>().isPickedUp = false;
         pickupObject.transform.parent = null;
         pickupObject.GetComponent<Rigidbody>().isKinematic = false;
+        //pickupObject.GetComponent<SphereCollider>().enabled = true;
     }
 }
