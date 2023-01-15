@@ -1514,14 +1514,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: blocksToRaise.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
       propertyPath: blocksToRaise.Array.data[0]
       value: 
       objectReference: {fileID: 835709560}
@@ -1553,38 +1545,6 @@ PrefabInstance:
       propertyPath: blocksToRaise.Array.data[7]
       value: 
       objectReference: {fileID: 2134162318}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[3]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[4]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[5]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[6]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 419969942, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
-      propertyPath: levelsToRaise.Array.data[7]
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5146713266565266772, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
       propertyPath: m_RootOrder
       value: 5
