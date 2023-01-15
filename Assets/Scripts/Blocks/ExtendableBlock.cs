@@ -16,7 +16,7 @@ public class ExtendableBlock : MonoBehaviour
     protected float levelHeight = 5f;      // How tall each level raise is
     protected int movingDirection;
 
-    protected void Start() {
+    protected virtual void Start() {
         isStretching = false;
     }
 
