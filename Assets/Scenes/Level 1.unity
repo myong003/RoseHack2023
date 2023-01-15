@@ -390,10 +390,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1324346664, guid: 891bee7d9df1b3a47845917f8a6f831f, type: 3}
-      propertyPath: speed
-      value: 2.75
-      objectReference: {fileID: 0}
     - target: {fileID: 3400351993251518513, guid: 891bee7d9df1b3a47845917f8a6f831f, type: 3}
       propertyPath: m_Name
       value: BeanGirl
