@@ -12,7 +12,8 @@ public class ExtendableBlock : MonoBehaviour
     public float maxLevel = 3;
     public float scaleSpeed = 1;         // How fast the blocks rise/fall
     protected float nextHeight;
-    protected float levelHeight = 5;      // How tall each level raise is
+    protected float nextScale;
+    protected float levelHeight = 5f;      // How tall each level raise is
     protected int movingDirection;
 
     protected void Start() {
@@ -28,11 +29,11 @@ public class ExtendableBlock : MonoBehaviour
         // }
 
         if (isStretching) {
-            float currHeight = topHeight.TransformPoint(topHeight.position).y;
-            if (movingDirection > 0 && currHeight < nextHeight) {       // Moving up
+            // float currHeight = topHeight.TransformPoint(topHeight.position).y;
+            if (movingDirection > 0 && stretchingBlock.localScale.y < nextScale) {       // Moving up
                 stretchingBlock.localScale += new Vector3(0, 1, 0) * scaleSpeed * Time.deltaTime;
             }
-            else if (movingDirection < 0 && currHeight > nextHeight) {  // Moving down
+            else if (movingDirection < 0 && stretchingBlock.localScale.y > nextScale) {  // Moving down
                 stretchingBlock.localScale -= new Vector3(0, 1, 0) * scaleSpeed * Time.deltaTime;
             }
             else {      // Done moving
@@ -51,8 +52,11 @@ public class ExtendableBlock : MonoBehaviour
     public virtual void ExtendBlock(int levelChange) {
         if (currentLevel + levelChange <= maxLevel && currentLevel + levelChange >= minLevel && !isStretching) {
             isStretching = true;
-            float currHeight = topHeight.TransformPoint(topHeight.position).y;
-            nextHeight = currHeight + levelChange * levelHeight;
+            // float currHeight = topHeight.TransformPoint(topHeight.position).y;
+            // nextHeight = currHeight + levelChange * levelHeight;
+            nextScale = stretchingBlock.localScale.y + levelChange;
+            // Debug.Log(currHeight);
+            // Debug.Log(nextHeight);
             movingDirection = levelChange;
             currentLevel += levelChange;
         }
