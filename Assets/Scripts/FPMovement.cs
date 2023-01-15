@@ -5,22 +5,20 @@ using UnityEngine;
 public class FPMovement : MonoBehaviour
 {
     public float speed;
-    Vector3 input;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Vector3 input = Vector3.zero;
+    private float movementSpeedPercent = 0;
 
-    // Update is called once per frame
+    
     void Update()
     {
         input = Vector3.zero;
-        
         input += Vector3.forward * Input.GetAxis("Vertical");
-
         input += Vector3.right * Input.GetAxis("Horizontal");
 
-        transform.Translate(input.normalized * speed * Time.deltaTime);
+        if (input == Vector3.zero) movementSpeedPercent = 0;
+        else movementSpeedPercent += 0.006f;
+        movementSpeedPercent = Mathf.Clamp(movementSpeedPercent, 0, 1);
+
+       transform.Translate(input.normalized * speed * Time.deltaTime * movementSpeedPercent);
     }
 }
