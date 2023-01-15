@@ -20,12 +20,12 @@ public class ExtendableBlock : MonoBehaviour
     }
 
     protected virtual void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            ExtendBlock(1);
-        }
-        if (Input.GetKeyDown(KeyCode.T)) {
-            ExtendBlock(-1);
-        }
+        // if (Input.GetKeyDown(KeyCode.R)) {
+        //     ExtendBlock(1);
+        // }
+        // if (Input.GetKeyDown(KeyCode.T)) {
+        //     ExtendBlock(-1);
+        // }
 
         if (isStretching) {
             float currHeight = topHeight.TransformPoint(topHeight.position).y;
@@ -50,9 +50,9 @@ public class ExtendableBlock : MonoBehaviour
     /// </param>
     public virtual void ExtendBlock(int levelChange) {
         if (currentLevel + levelChange <= maxLevel && currentLevel + levelChange >= minLevel && !isStretching) {
-            float currHeight = topHeight.TransformPoint(topHeight.position).y;
             isStretching = true;
-            nextHeight = (currentLevel + levelChange) * levelHeight;
+            float currHeight = topHeight.TransformPoint(topHeight.position).y;
+            nextHeight = currHeight + levelChange * levelHeight;
             movingDirection = levelChange;
             currentLevel += levelChange;
         }

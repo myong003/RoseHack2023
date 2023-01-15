@@ -13,13 +13,13 @@ public class ExtendableRamp : ExtendableBlock
         this.transform.position = attachedPillar.topHeight.position + new Vector3(0, yOffset, 0);
         // rb.velocity = Vector3.zero;
 
-        if (Input.GetKeyDown(KeyCode.F)) {
-            ExtendBlock(1);
-        }
+        // if (Input.GetKeyDown(KeyCode.F)) {
+        //     ExtendBlock(1);
+        // }
 
-        if (Input.GetKeyDown(KeyCode.G)) {
-            ExtendBlock(-1);
-        }
+        // if (Input.GetKeyDown(KeyCode.G)) {
+        //     ExtendBlock(-1);
+        // }
     }
 
     /// <summary>
