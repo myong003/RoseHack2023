@@ -8,12 +8,16 @@ public class BallWell : MonoBehaviour
     public List<int> levelsToRaise;
     //public Vector3 positionToMoveTo;
     public GameObject well;
+    public ParticleSystem particles;
+    public Light wellLight;
+    public Color wellColor;
     private GameObject cube; 
     private bool inWell = false;
 
     void Start()
     {
-
+        var main = particles.main;
+        main.startColor = wellColor;
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration)
@@ -53,7 +57,7 @@ public class BallWell : MonoBehaviour
                 cube = collision.gameObject;
                 var temp = new Vector3(well.transform.position.x, well.transform.position.y + 0.6f, well.transform.position.z);
                 //cube.transform.parent.GetComponent<PlayerPickup>().Drop(); 
-                Debug.Log("Calling coroutine");
+                wellLight.enabled = true;
                 StartCoroutine(LerpPosition (temp, 1.5f));
             }
             
@@ -65,6 +69,7 @@ public class BallWell : MonoBehaviour
         if ( collision.gameObject.tag == "Pickup" && inWell){
             inWell = false;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            wellLight.enabled = false;
             LowerBlocks();
         }
     }

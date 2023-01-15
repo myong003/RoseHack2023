@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 3400351993251518515}
   - component: {fileID: 1324346664}
   - component: {fileID: 1324346669}
-  - component: {fileID: 854703064}
+  - component: {fileID: 3433462003236065585}
   m_Layer: 0
   m_Name: BeanGirl
   m_TagString: Player
@@ -214,10 +214,10 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &854703064
-BoxCollider:
+--- !u!64 &3433462003236065585
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -226,9 +226,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 9.457607, y: 18.187855, z: 10.9587145}
-  m_Center: {x: 0.026192665, y: -0.34795463, z: 0.5679178}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 447e02b665b280e48a5416329a8a4b9d, type: 3}
 --- !u!1 &8661774406773612941
 GameObject:
   m_ObjectHideFlags: 0
