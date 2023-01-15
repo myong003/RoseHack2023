@@ -10,7 +10,9 @@ public class ExtendableRamp : ExtendableBlock
     private float maxScale = 0.5f;
 
     protected override void Update() {
-        this.transform.position = attachedPillar.topHeight.position + new Vector3(0, yOffset, 0);
+        if (attachedPillar != null) {
+            this.transform.position = attachedPillar.topHeight.position + new Vector3(0, yOffset, 0);
+        }
         // rb.velocity = Vector3.zero;
 
         // if (Input.GetKeyDown(KeyCode.F)) {
