@@ -1561,6 +1561,10 @@ PrefabInstance:
       propertyPath: blocksToRaise.Array.data[7]
       value: 
       objectReference: {fileID: 2134162318}
+    - target: {fileID: 97992708527116907, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
+      propertyPath: m_Intensity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5146713266565266772, guid: 8dfbe4be2622d4415bfbdaaad8a5f305, type: 3}
       propertyPath: m_RootOrder
       value: 5
