@@ -18,7 +18,6 @@ public class Ladder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerCamera.transform.rotation.eulerAngles.x);
         if (Input.GetKey(KeyCode.W) && playerOnLadder && playerCamera.transform.rotation.eulerAngles.x > 100 && playerCamera.transform.rotation.eulerAngles.x < 320){
             player.transform.position += Vector3.up * climbSpeed * Time.deltaTime;
         }
