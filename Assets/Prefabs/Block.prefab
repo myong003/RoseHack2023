@@ -50,7 +50,7 @@ MonoBehaviour:
   isStretching: 0
   currentLevel: 1
   minLevel: 1
-  maxLevel: 3
+  maxLevel: 4
   scaleSpeed: 1
 --- !u!1 &7565016576052065622
 GameObject:

@@ -24,5 +24,8 @@ public class RespawnTrigger : MonoBehaviour
             ob.transform.position = respawnPoint.transform.position;
             ob.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
+        else if (ob.tag == "Pickup") {
+            ob.GetComponent<SphereStatus>().Respawn();
+        }
     }
 }
