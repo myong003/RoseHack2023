@@ -19,7 +19,6 @@ public class RespawnTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider coll) {
         GameObject ob = coll.gameObject;
-        Debug.Log("Trigger");
         if (ob.tag == "Player") {
             ob.transform.position = respawnPoint.transform.position;
             ob.GetComponent<Rigidbody>().velocity = Vector3.zero;

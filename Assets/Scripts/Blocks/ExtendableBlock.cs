@@ -19,7 +19,7 @@ public class ExtendableBlock : MonoBehaviour
         isStretching = false;
     }
 
-    protected void Update() {
+    protected virtual void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
             ExtendBlock(1);
         }
@@ -29,13 +29,15 @@ public class ExtendableBlock : MonoBehaviour
 
         if (isStretching) {
             float currHeight = topHeight.TransformPoint(topHeight.position).y;
-            if (movingDirection > 0 && currHeight < nextHeight) {
+            if (movingDirection > 0 && currHeight < nextHeight) {           // Moving up
                 stretchingBlock.localScale += new Vector3(0, 1, 0) * scaleSpeed * Time.deltaTime;
             }
-            else if (movingDirection < 0 && currHeight > nextHeight) {
+            else if (movingDirection < 0 && currHeight > nextHeight) {      // Moving down
                 stretchingBlock.localScale -= new Vector3(0, 1, 0) * scaleSpeed * Time.deltaTime;
             }
-            else {
+            else {      // Done moving
+                // Vector3 oldScale = stretchingBlock.localScale;
+                // stretchingBlock.localScale = new Vector3(oldScale.x, Mathf.Round(oldScale.y), oldScale.z);
                 isStretching = false;
             }
         }
@@ -47,8 +49,8 @@ public class ExtendableBlock : MonoBehaviour
     /// <param name="level">
     /// How many levels the block with increase/decrease by
     /// </param>
-    public void ExtendBlock(int levelChange) {
-        if (currentLevel + levelChange <= maxLevel && currentLevel + levelChange >= minLevel) {
+    public virtual void ExtendBlock(int levelChange) {
+        if (currentLevel + levelChange <= maxLevel && currentLevel + levelChange >= minLevel && !isStretching) {
             float currHeight = topHeight.TransformPoint(topHeight.position).y;
             isStretching = true;
             nextHeight = currHeight + levelChange * levelHeight;
