@@ -21,7 +21,7 @@ public class Teleportation : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if ( collision.gameObject == player )
+        if ( collision.gameObject.tag == "Player" )
         {
             //Debug.Log("working");
             var temp = new Vector3(secondPortal.transform.position.x, secondPortal.transform.position.y + 1, secondPortal.transform.position.z + 1);
