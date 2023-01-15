@@ -7,7 +7,7 @@ public class BallWell : MonoBehaviour
     // Start is called before the first frame update
     //public Vector3 positionToMoveTo;
     public GameObject well;
-    public GameObject cube; 
+    private GameObject cube; 
     private bool inWell = false;
 
     void Start()
@@ -31,17 +31,23 @@ public class BallWell : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if ( collision.gameObject == cube )
+        if ( collision.gameObject.tag == "Pickup")
         {
-            var temp = new Vector3(well.transform.position.x, well.transform.position.y + 1, well.transform.position.z);
-            //cube.transform.parent.GetComponent<PlayerPickup>().Drop(); 
-            StartCoroutine(LerpPosition (temp, 2));
+            if (!collision.gameObject.GetComponent<SphereStatus>().isPickedUp){
+                cube = collision.gameObject;
+                var temp = new Vector3(well.transform.position.x, well.transform.position.y + 1, well.transform.position.z);
+                //cube.transform.parent.GetComponent<PlayerPickup>().Drop(); 
+                StartCoroutine(LerpPosition (temp, 2));
+            }
+            
         }
     }
 
     void OnTriggerExit(Collider collision)
     {
-        inWell = false; 
+        if ( collision.gameObject.tag == "Pickup"){
+            inWell = false; 
+        }
     }
 
     // Update is called once per frame
