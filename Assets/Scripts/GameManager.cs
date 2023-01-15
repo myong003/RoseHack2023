@@ -15,4 +15,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void PlayGame()
+    {
+        Debug.Log("play button pressed");
+    }
 }
