@@ -6,7 +6,7 @@ public class NextLevel : MonoBehaviour
 {
     public GameObject[] ladderBlocks;
     public GameObject currentRespawnPoint;
-
+    public Material skyboxMat;
     public GameObject previousRespawnZone;
 
     private void OnTriggerEnter(Collider other) {
@@ -17,6 +17,7 @@ public class NextLevel : MonoBehaviour
             }
             currentRespawnPoint.SetActive(true);
             previousRespawnZone.SetActive(false);
+            RenderSettings.skybox = skyboxMat;
         }
     }
 }
