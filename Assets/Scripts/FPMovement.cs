@@ -16,7 +16,7 @@ public class FPMovement : MonoBehaviour
         input += Vector3.right * Input.GetAxis("Horizontal");
 
         if (input == Vector3.zero) movementSpeedPercent = 0.25f;
-        else movementSpeedPercent += 0.006f;
+        else movementSpeedPercent += 0.06f;
         movementSpeedPercent = Mathf.Clamp(movementSpeedPercent, 0.25f, 1);
 
        transform.Translate(input.normalized * speed * Time.deltaTime * movementSpeedPercent);
