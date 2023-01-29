@@ -4608,7 +4608,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -20066,6 +20066,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1423037471}
     m_Modifications:
+    - target: {fileID: 3400351993085182760, guid: 891bee7d9df1b3a47845917f8a6f831f, type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 3400351993251518513, guid: 891bee7d9df1b3a47845917f8a6f831f, type: 3}
       propertyPath: m_Name
       value: BeanGirl
